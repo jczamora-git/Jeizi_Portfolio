@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme{
+    --font-primary: 'Poppins', sans-serif;
+}
+
+/* Typewriter effect and highlight styles */
+#animated-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid red; /* Cursor effect */
+    animation: blink 0.7s steps(2, start) infinite;
+    height: 1.5em; /* Set a fixed height based on the font size */
+    line-height: 1.5em; /* Ensure vertical alignment */
+}
+
+.animated-text-container {
+    height: 2.5rem; /* Adjust based on the font size of the animated text */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: start; /* Align text to the left */
+    overflow: hidden; /* Prevent layout shifts */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+    scroll-padding-top: 4rem; /* Adjust this value to match the height of your navigation bar */
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.highlight {
+    background-color: red;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Slide-in and fade-in animation */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    animation: reveal 1s ease-out forwards;
+}

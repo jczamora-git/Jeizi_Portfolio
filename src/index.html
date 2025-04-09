@@ -1,0 +1,487 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">    
+</head>
+<body class="font-primary">
+<div class="h-auto lg:h-screen bg-zinc-900 relative overflow-hidden">
+<nav class="w-full fixed top-0 bg-zinc-900 text-white shadow-2xl z-60 transition-opacity duration-500 opacity-100 lg:opacity-0 lg:pointer-events-none">
+    <div class="container mx-auto py-4 px-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="/img/Jeizi_logo.png" alt="Jeizi Logo" width="50" height="50" class="rounded-full">
+            <h1 class="text-xl lg:text-2xl font-bold">Jeizi Productions</h1>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-white focus:outline-none" id="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-10">
+            <ul class="flex space-x-6 text-sm font-medium list-none gap-10">
+                <li>
+                    <a href="#home" data-target="home" class="nav-link hover:text-red-700 hover:italic">Home</a>
+                </li>
+                <li>
+                    <a href="#services" data-target="services" class="nav-link hover:text-red-700 hover:italic">About</a>
+                </li>
+                <li>
+                    <a href="#contact" data-target="contact" class="nav-link hover:text-red-700 hover:italic">Contact</a>
+                </li>
+                <li>
+                    <a href="#portfolio" data-target="portfolio" class="nav-link hover:text-red-700 hover:italic">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="lg:hidden hidden bg-zinc-900 w-full" id="mobile-menu">
+        <ul class="py-4 px-4 space-y-4">
+            <li>
+                <a href="#home" data-target="home" class="mobile-nav-link block text-white hover:text-red-700 hover:italic">Home</a>
+            </li>
+            <li>
+                <a href="#services" data-target="services" class="mobile-nav-link block text-white hover:text-red-700 hover:italic">About</a>
+            </li>
+            <li>
+                <a href="#contact" data-target="contact" class="mobile-nav-link block text-white hover:text-red-700 hover:italic">Contact</a>
+            </li>
+            <li>
+                <a href="#portfolio" data-target="portfolio" class="mobile-nav-link block text-white hover:text-red-700 hover:italic">Portfolio</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- My Overview - Desktop -->
+<div id="home" class="hidden lg:block">
+    <div class="absolute top-2/5 left-100 text-white opacity-0 translate-y-10 transition-all duration-1000 overview-content">
+        <h1 class="text-4xl lg:text-6xl font-bold">Hi, I am JC Zamora</h1>
+        <div class="animated-text-container">
+            <p class="text-lg lg:text-2xl mt-4">
+                <span id="animated-text" class="text-red-700"></span>
+            </p>
+        </div>
+    </div>
+    <div class="button-container absolute mt-130 left-100 flex space-x-4 opacity-0 translate-y-10 transition-all duration-1000">
+        <button class="bg-red-700 text-white px-6 py-2 rounded hover:bg-red-600">Hire Me</button>
+        <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });" 
+                class="bg-transparent text-white px-6 py-2 rounded border border-red-700 hover:bg-red-600 hover:text-white">Portfolio</button>
+    </div>
+    <img src="/img/Zamora.png" alt="My Profile Picture" class="overview-image mx-auto mt-20 absolute right-5 h-11/12 object-cover opacity-0 translate-y-10 transition-all duration-1000"> 
+</div> 
+
+<!-- My Overview - Mobile -->
+<div id="home-mobile" class="block lg:hidden relative h-screen overflow-hidden pt-16"> <!-- Added pt-16 for navbar -->
+    <!-- Mobile Image -->
+    <div class="absolute inset-0 w-full h-full overview-image opacity-0 translate-y-10 transition-all duration-1000">
+         <img src="/img/Zamora.png" alt="My Profile Picture" class="h-full w-full object-cover object-center">
+    </div>
+    <!-- Mobile Content Wrapper (for positioning) -->
+    <div class="absolute bottom-0 left-0 w-full p-6 z-10"> <!-- Added z-10 -->
+        <!-- Mobile Content -->
+        <div class="overview-content text-white opacity-0 translate-y-10 transition-all duration-1000">
+            <h1 class="text-3xl font-bold mb-2">Hi, I am JC Zamora</h1>
+            <div class="animated-text-container">
+                 <p class="text-base">
+                      <span id="animated-text-mobile" class="text-red-700"></span>
+                 </p>
+            </div>
+        </div>
+        <!-- Mobile Buttons -->
+        <div class="button-container mt-4 flex flex-col space-y-2 opacity-0 translate-y-10 transition-all duration-1000">
+             <button class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600 w-full text-sm">Hire Me</button>
+             <button onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });"
+                     class="bg-transparent text-white px-4 py-2 rounded border border-red-700 hover:bg-red-600 hover:text-white w-full text-sm">Portfolio</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scroll Down Button -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-50 hidden lg:flex">
+    <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });" 
+            class="bg-red-700 text-white px-4 py-2 rounded-full hover:bg-red-600 flex items-center space-x-2">
+        <span>Scroll Down</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+</div>
+</div>
+
+<!-- My Services -->
+<div id="services" class="w-full py-16 lg:py-20 bg-red-700 relative z-10">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10">My Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <!-- Service 1 -->
+            <div class="service-item text-white p-6 rounded-lg shadow-lg flex flex-col items-center opacity-0">
+                <div class="mb-4">
+                    <img src="/img/globe_icon.png" alt="Development Logo" class="h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-center">Development</h3>
+                <p class="text-sm text-center">I specialize in developing custom web applications and Windows Form-based software tailored to fit specific needs. Whether it's building a responsive website or designing a functional desktop application, I focus on creating efficient, user-friendly, and visually intuitive solutions.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-item text-white p-6 rounded-lg shadow-lg flex flex-col items-center opacity-0">
+                <div class="mb-4">
+                    <img src="/img/graphics_icon.png" alt="Graphic Design Logo" class="h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-center">Graphic Design</h3>
+                <p class="text-sm text-center">With a passion for visual storytelling, I deliver creative and impactful designs — from branding materials and digital ads to custom apparel and event graphics. Every project reflects originality and strategic creativity.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-item text-white p-6 rounded-lg shadow-lg flex flex-col items-center opacity-0">
+                <div class="mb-4">
+                    <img src="/img/live_icon.png" alt="UI/UX Design Logo" class="h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-center">Live Operator</h3>
+                <p class="text-sm text-center">As a live stream operator, I ensure smooth and professional execution of live events, whether it's an esports tournament, online seminar, or virtual production. Technical precision and real-time adaptability are my strengths.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Socials -->
+<div id="contact" class="relative flex flex-col items-center justify-center min-h-[50vh] py-[60px] lg:h-[70vh] lg:pt-[60px] lg:pb-0">
+    <!-- Background with effects -->
+    <div class="absolute inset-0 bg-black bg-cover bg-top" 
+         style="background-image: url('/img/bg_img.jpg'); filter: grayscale(1) brightness(0.2); opacity: 1;">
+    </div>
+    
+    <!-- Content container -->
+    <div class="container mx-auto text-center py-10 lg:py-20 relative z-10 px-4">
+        <h2 class="text-2xl lg:text-3xl font-bold mb-6 text-white">Socials</h2>
+        <div class="flex justify-center space-x-4 lg:space-x-6">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="/img/ig_icon.png" alt="Facebook" class="h-10 hover:opacity-80">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="/img/fb_icon.png" alt="Twitter" class="h-10 hover:opacity-80">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="/img/x_icon.png" alt="LinkedIn" class="h-10 hover:opacity-80">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="/img/git_icon.png" alt="Instagram" class="h-10 hover:opacity-80">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- My Portfolio -->
+<div id="portfolio" class="w-full py-16 lg:py-20 bg-zinc-900 relative z-10">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10">My Portfolio</h2>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="filter-btn bg-red-700 text-white px-4 py-2 lg:px-6 lg:py-2 rounded hover:bg-red-600" data-filter="all">All</button>
+            <button class="filter-btn bg-transparent text-white px-4 py-2 lg:px-6 lg:py-2 rounded border border-red-700 hover:bg-red-600 hover:text-white" data-filter="web">Web</button>
+            <button class="filter-btn bg-transparent text-white px-4 py-2 lg:px-6 lg:py-2 rounded border border-red-700 hover:bg-red-600 hover:text-white" data-filter="design">Design</button>
+            <button class="filter-btn bg-transparent text-white px-4 py-2 lg:px-6 lg:py-2 rounded border border-red-700 hover:bg-red-600 hover:text-white" data-filter="live">Live</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 portfolio-grid">
+            <div class="portfolio-item web">
+                <a href="/img/myworks/Web_1.png" target="_blank">
+                    <img src="/img/myworks/Web_1.png" alt="Web Project 1" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+            <div class="portfolio-item design">
+                <a href="/img/myworks/Design_1.png" target="_blank">
+                    <img src="/img/myworks/Design_1.png" alt="Design Project 1" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+            <div class="portfolio-item live">
+                <a href="/img/myworks/Live_1.png" target="_blank">
+                    <img src="/img/myworks/Live_1.png" alt="Live Project 1" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+            <div class="portfolio-item web">
+                <a href="/img/myworks/Web_2.png" target="_blank">
+                    <img src="/img/myworks/Web_2.png" alt="Web Project 2" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+            <div class="portfolio-item design">
+                <a href="/img/myworks/Design_2.png" target="_blank">
+                    <img src="/img/myworks/Design_2.png" alt="Design Project 2" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+            <div class="portfolio-item live">
+                <a href="/img/myworks/Live_2.png" target="_blank">
+                    <img src="/img/myworks/Live_2.png" alt="Live Project 2" class="w-full h-48 object-cover rounded shadow-lg">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<div class="w-full py-3 bg-gray-700 text-white text-center shadow-lg bottom-0">
+    <p>&copy; 2023 Jeizi Productions. All rights reserved.</p>
+</div>
+
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            filterButtons.forEach(btn => btn.classList.remove('bg-red-700'));
+            button.classList.add('bg-red-700');
+        });
+    });
+
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a.mobile-nav-link'); // Select only mobile links
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is open before closing
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    }
+
+    // Adjust navbar opacity logic for mobile vs desktop
+    const mainNavbar = document.querySelector('nav'); // Use a more specific selector if needed
+    if (mainNavbar) {
+        window.addEventListener('scroll', () => {
+            // Only apply fade-in effect on large screens
+            if (window.innerWidth >= 1024) { // Tailwind's lg breakpoint
+                 if (window.scrollY > 0) {
+                    mainNavbar.classList.add('lg:opacity-100');
+                    mainNavbar.classList.remove('lg:opacity-0', 'lg:pointer-events-none');
+                } else {
+                    mainNavbar.classList.add('lg:opacity-0', 'lg:pointer-events-none');
+                    mainNavbar.classList.remove('lg:opacity-100');
+                }
+            } else {
+                 // Ensure navbar is always visible on mobile, remove lg specific classes
+                 mainNavbar.classList.remove('lg:opacity-0', 'lg:pointer-events-none', 'lg:opacity-100');
+                 mainNavbar.classList.add('opacity-100'); // Make sure it's visible
+            }
+        });
+        // Initial check in case the page loads scrolled down on desktop
+        if (window.innerWidth >= 1024 && window.scrollY > 0) {
+             mainNavbar.classList.add('lg:opacity-100');
+             mainNavbar.classList.remove('lg:opacity-0', 'lg:pointer-events-none');
+        } else if (window.innerWidth < 1024) {
+            mainNavbar.classList.add('opacity-100'); // Ensure visible on mobile load
+            mainNavbar.classList.remove('lg:opacity-0', 'lg:pointer-events-none', 'lg:opacity-100');
+        }
+    }
+</script>
+<script>
+    // Wait for the DOM to fully load
+    window.addEventListener('load', () => {
+        // Determine which overview section is visible
+        const desktopHome = document.getElementById('home');
+        const mobileHome = document.getElementById('home-mobile');
+        let activeHomeSection;
+
+        if (desktopHome && window.getComputedStyle(desktopHome).display !== 'none') {
+            activeHomeSection = desktopHome;
+        } else if (mobileHome && window.getComputedStyle(mobileHome).display !== 'none') {
+            activeHomeSection = mobileHome;
+        }
+
+        // If an active section is found, animate its elements
+        if (activeHomeSection) {
+            const overviewElements = [
+                activeHomeSection.querySelector('.overview-image'),
+                activeHomeSection.querySelector('.overview-content'),
+                activeHomeSection.querySelector('.button-container') 
+            ];
+
+            // Add a delay for each element
+            overviewElements.forEach((element, index) => {
+                if (element) { // Check if element exists before animating
+                     setTimeout(() => {
+                        element.classList.remove('opacity-0', 'translate-y-10');
+                        element.classList.add('opacity-100', 'translate-y-0');
+                    }, index * 500); // 500ms delay between each element
+                }
+            });
+        }
+    });
+</script>
+<script>
+    const desktopTextElement = document.getElementById('animated-text');
+    const mobileTextElement = document.getElementById('animated-text-mobile');
+    const texts = [
+    "Full Stack Web Developer",
+    "Windows Form Application Developer",
+    "Professional Graphics Designer",
+    "Live Stream Production Operator",
+    "UI/UX Design Specialist",
+    "Branding & Visual Identity Expert",
+    "Real-Time Event Stream Manager"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isHighlighting = false;
+
+    // Speeds for typing, deleting, and highlighting
+    const typingSpeed = 100; // Speed for typing characters
+    const deletingSpeed = 100; // Speed for deleting all text at once
+    const highlightingSpeed = 100; // Speed for highlighting characters
+
+    function typeWriterEffect() {
+        const currentText = texts[textIndex];
+        let targetElement = null;
+
+        // Determine which element to update based on visibility
+        if (desktopTextElement && window.getComputedStyle(desktopTextElement.closest('#home')).display !== 'none') {
+            targetElement = desktopTextElement;
+        } else if (mobileTextElement && window.getComputedStyle(mobileTextElement.closest('#home-mobile')).display !== 'none') {
+            targetElement = mobileTextElement;
+        }
+        
+        // Only proceed if a target element is visible
+        if (targetElement) {
+            if (!isDeleting && !isHighlighting) {
+                // Typing effect
+                targetElement.textContent = currentText.slice(0, charIndex++);
+            } else if (isHighlighting) {
+                // Highlighting effect (one character at a time from right to left)
+                const highlightedText = currentText.slice(charIndex);
+                const remainingText = currentText.slice(0, charIndex);
+                targetElement.innerHTML = `${remainingText}<span class="highlight">${highlightedText}</span>`;
+                charIndex--;
+            } else if (isDeleting) {
+                // Deleting all text at once
+                targetElement.textContent = "";
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length; // Move to the next text
+                charIndex = 0; // Reset charIndex for typing
+            }
+
+            if (charIndex === currentText.length && !isDeleting && !isHighlighting) {
+                // Start highlighting after typing is complete
+                setTimeout(() => {
+                    isHighlighting = true;
+                    charIndex = currentText.length - 1; // Start highlighting from the last character
+                }, 500); // Pause before highlighting
+            }
+
+            if (charIndex < 0 && isHighlighting) {
+                // Start deleting after highlighting is complete
+                isHighlighting = false;
+                isDeleting = true;
+            }
+        }
+        
+        const delay = isDeleting
+            ? deletingSpeed
+            : isHighlighting
+            ? highlightingSpeed
+            : typingSpeed;
+
+        setTimeout(typeWriterEffect, delay);
+    }
+
+    // Start the animation on page load
+    window.addEventListener('load', typeWriterEffect);
+</script>
+<script>
+    // Lightbox functionality
+    const portfolioImages = document.querySelectorAll('.portfolio-item a');
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.classList.add('fixed', 'inset-0', 'bg-black', 'bg-opacity-80', 'flex', 'items-center', 'justify-center', 'hidden', 'z-50');
+    document.body.appendChild(lightbox);
+
+    const img = document.createElement('img');
+    img.classList.add('max-w-full', 'max-h-full', 'rounded');
+    lightbox.appendChild(img);
+
+    const navbar = document.querySelector('nav');
+
+    portfolioImages.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            img.src = link.href;
+            lightbox.classList.remove('hidden');
+            lightboxNavbar.classList.add('hidden'); // Hide the navbar
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.add('hidden');
+        lightboxNavbar.classList.remove('hidden'); // Show the navbar
+    });
+</script>
+<script>
+    // Select all service items
+    const serviceItems = document.querySelectorAll('.service-item');
+
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver((entries, observer) => {
+        let delay = 0; // Initialize delay for sequential animations
+
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Add a delay for each item
+                setTimeout(() => {
+                    entry.target.classList.add('reveal'); // Add the reveal animation
+                    entry.target.classList.remove('opacity-0'); // Remove the hidden state
+                }, delay);
+
+                delay += 1000; // Increase delay by 1 second for the next item
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    }, {
+        threshold: 0.2 // Trigger when 20% of the element is visible
+    });
+
+    // Observe each service item
+    serviceItems.forEach(item => observer.observe(item));
+</script>
+<script>
+    // Select all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Get the height of the navigation bar
+    const navbarHeight = document.querySelector('nav').offsetHeight;
+
+    // Add click event listeners to navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+
+            // Get the target section
+            const targetId = link.getAttribute('href').substring(1); // Remove the '#' from href
+            const targetSection = document.getElementById(targetId);
+
+            // Scroll to the target section, accounting for the navbar height
+            window.scrollTo({
+                top: targetSection.offsetTop - navbarHeight, // Adjust scroll position
+                behavior: 'smooth' // Smooth scrolling
+            });
+        });
+    });
+</script>
+</body>
+</html>
